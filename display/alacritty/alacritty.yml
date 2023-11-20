@@ -1,0 +1,35 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+# Colorscheme
+import:
+  - ~/.config/alacritty/themes/base16_default_dark.yaml
+
+window:
+  decorations: none
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
+  opacity: 0.85
+
+scrolling:
+  history: 10000
+
+  # Scrolling distance multiplier.
+  #multiplier: 3
+
+# Font configuration
+font:
+  normal:
+    family: FiraCode
+    style: Regular
+  bold:
+    family: FiraCode 
+    style: Bold 
+  italic:
+    family: FiraCode
+    style: Italic 
+  bold_italic:
+    family: FiraCode
+    style: Bold Italic
+  # Point size
+  size: 16.0
+
