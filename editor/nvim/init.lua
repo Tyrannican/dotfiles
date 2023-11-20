@@ -109,6 +109,9 @@ require('lazy').setup({
   -- Primeagen Harpoon
   { 'ThePrimeagen/harpoon' },
 
+  -- Discord Rich Presence
+  { 'andweeb/presence.nvim' },
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
