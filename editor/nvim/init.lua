@@ -548,6 +548,14 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+-- Ensures Rustfmt is run on save
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = {"*.rs"},
+  callback = function()
+    vim.lsp.buf.format()
+  end
+})
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
