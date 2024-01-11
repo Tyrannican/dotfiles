@@ -123,3 +123,11 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
     vim.lsp.buf.format()
   end
 })
+
+-- Ensures Go Fmt is run on save
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = {"*.go"},
+  callback = function()
+    vim.lsp.buf.format()
+  end
+})
