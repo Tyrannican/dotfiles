@@ -139,11 +139,13 @@ require('lazy').setup({
     priority = 1000,
   },
   {
-    'morhetz/gruvbox',
-    name = 'gruvbox',
+    'sainnhe/gruvbox-material',
+    name = 'gruvbox-material',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme('gruvbox')
+      vim.g.gruvbox_material_background = 'hard'
+      vim.g.gruvbox_material_better_performance = 1
+      vim.cmd.colorscheme('gruvbox-material')
     end
   },
   {
