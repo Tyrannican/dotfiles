@@ -128,6 +128,7 @@ alias python="python3"
 alias pip="pip3"
 alias ls="exa"
 alias gs="git status"
+alias gco="git checkout"
 alias vim="nvim"
 
 export NVM_DIR="$HOME/.nvm"
