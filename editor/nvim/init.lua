@@ -134,18 +134,13 @@ require('lazy').setup({
     opts = {},
   },
   {
-    'AlexvZyl/nordic.nvim',
-    lazy = false,
-    priority = 1000,
-  },
-  {
     'sainnhe/gruvbox-material',
     name = 'gruvbox-material',
     priority = 1000,
     config = function()
-      vim.g.gruvbox_material_background = 'hard'
-      vim.g.gruvbox_material_better_performance = 1
-      vim.cmd.colorscheme('gruvbox-material')
+      -- vim.g.gruvbox_material_background = 'hard'
+      -- vim.g.gruvbox_material_better_performance = 1
+      -- vim.cmd.colorscheme('gruvbox-material')
     end
   },
   {
@@ -155,6 +150,14 @@ require('lazy').setup({
     -- config = function()
     --   vim.cmd.colorscheme 'rose-pine'
     -- end,
+  },
+  {
+    'EdenEast/nightfox.nvim',
+    name = 'nightfox',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'nightfox'
+    end,
   },
   {
     -- Set lualine as statusline
