@@ -156,7 +156,7 @@ require('lazy').setup({
     name = 'nightfox',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'nightfox'
+      vim.cmd.colorscheme 'carbonfox'
     end,
   },
   {
