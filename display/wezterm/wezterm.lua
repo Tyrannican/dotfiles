@@ -5,5 +5,6 @@ local config = wezterm.config_builder()
 config.color_scheme = 'carbonfox'
 config.font_size = 16.0
 config.window_decorations = 'NONE'
+config.front_end = "WebGpu"
 
 return config
