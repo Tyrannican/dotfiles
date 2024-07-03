@@ -142,3 +142,4 @@ export PATH=$PATH:$HOME/go/bin
 
 # Turso
 export PATH="/home/gak/.turso:$PATH"
+eval "$(~/.local/bin/mise activate bash)"
