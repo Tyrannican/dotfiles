@@ -69,7 +69,7 @@ require('mason-lspconfig').setup()
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
-  -- gopls = {},
+  gopls = {},
   -- pyright = {},
   rust_analyzer = {
     settings = {
@@ -84,10 +84,21 @@ local servers = {
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
+    settings = {
+      Lua = {
+        runtime = { version = "LuaJIT" },
+        workspace = {
+          checkThirdParty = false,
+          library = {
+            '${3rd}/luv/library',
+            unpack(vim.api.nvim_get_runtime_file('', true)),
+          },
+        },
+        completion = {
+          callSnippet = 'Replace'
+        }
+      }
+    }
   },
 }
 

@@ -48,7 +48,21 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
-
+  {
+    -- AutoFormat!
+    'stevearc/conform.nvim',
+    opts = {
+      notify_on_error = false,
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true
+      },
+      formatters_by_ft = {
+        lua = { 'stylua' },
+        rust = { 'rust-analyzer' }
+      }
+    }
+  },
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -69,15 +83,18 @@ require('lazy').setup({
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    requires = { {"nvim-lua/plenary.nvim"} }
+    requires = { { "nvim-lua/plenary.nvim" } }
 
   },
 
   -- Discord Rich Presence
   { 'andweeb/presence.nvim' },
 
+  -- Cool TODO commands
+  { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',     opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -206,6 +223,7 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
+  -- TODO: Modularise this by adding the custom/plugins/*.lua files and remove the after directory
   -- { import = 'custom.plugins' },
 }, {})
 
