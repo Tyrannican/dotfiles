@@ -17,6 +17,3 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   { import = 'custom.plugins' },
 }, {})
-
--- My own settings
-require("yggdrasil")
