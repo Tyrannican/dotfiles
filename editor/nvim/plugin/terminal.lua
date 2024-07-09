@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 -- Escape in the terminal
-vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
+vim.keymap.set("t", "<Esc>", "<c-\\><c-n>")
 
 -- Open a terminal at the bottom of the screen with a fixed height
 vim.keymap.set('n', '<leader>st', function()
