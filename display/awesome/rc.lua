@@ -1,3 +1,6 @@
+-- TODO: Cleanup
+-- ChatGPT mess - Cleanup
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -7,9 +10,6 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
-
--- Load Debian menu entries
-local debian = require("debian.menu")
 
 -- Error handling
 if awesome.startup_errors then
