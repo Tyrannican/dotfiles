@@ -82,7 +82,7 @@ local apps = {
   browser = "firefox",
 }
 -- Menu
-local myawesomemenu = {
+local awesomemenu = {
   { "hotkeys",     function() return false, hotkeys_popup.show_help end },
   { "manual",      terminal .. " -e man awesome" },
   { "edit config", editor_cmd .. " " .. awesome.conffile },
@@ -91,7 +91,7 @@ local myawesomemenu = {
 }
 
 local mainmenu = awful.menu({
-  items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+  items = { { "awesome", awesomemenu, beautiful.awesome_icon },
     { "open terminal", terminal }
   }
 })
@@ -152,39 +152,39 @@ local tasklist_buttons = gears.table.join(
 awful.screen.connect_for_each_screen(function(s)
   awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }, s, awful.layout.layouts[1])
 
-  s.mypromptbox = awful.widget.prompt()
-  s.mylayoutbox = awful.widget.layoutbox(s)
-  s.mylayoutbox:buttons(gears.table.join(
+  s.promptbox = awful.widget.prompt()
+  s.layoutbox = awful.widget.layoutbox(s)
+  s.layoutbox:buttons(gears.table.join(
     awful.button({}, 1, function() awful.layout.inc(1) end),
     awful.button({}, 3, function() awful.layout.inc(-1) end),
     awful.button({}, 4, function() awful.layout.inc(1) end),
     awful.button({}, 5, function() awful.layout.inc(-1) end)))
-  s.mytaglist = awful.widget.taglist {
+  s.taglist = awful.widget.taglist {
     screen  = s,
     filter  = awful.widget.taglist.filter.all,
     buttons = taglist_buttons
   }
-  s.mytasklist = awful.widget.tasklist {
+  s.tasklist = awful.widget.tasklist {
     screen  = s,
     filter  = awful.widget.tasklist.filter.currenttags,
     buttons = tasklist_buttons
   }
 
-  s.mywibox = awful.wibar({ position = "top", screen = s })
+  s.wibox = awful.wibar({ position = "top", screen = s })
 
-  s.mywibox:setup {
+  s.wibox:setup {
     layout = wibox.layout.align.horizontal,
     { layout = wibox.layout.fixed.horizontal,
       launcher,
-      s.mytaglist,
-      s.mypromptbox,
+      s.taglist,
+      s.promptbox,
     },
-    s.mytasklist,
+    s.tasklist,
     { layout = wibox.layout.fixed.horizontal,
       keyboardlayout,
       wibox.widget.systray(),
       textclock,
-      s.mylayoutbox,
+      s.layoutbox,
     },
   }
 end)
@@ -276,13 +276,11 @@ globalkeys = gears.table.join(
       end
     end,
     { description = "restore minimized", group = "client" }),
-  awful.key({ modkey }, "r", function() awful.spawn("dmenu_run") end,
-    { description = "run dmenu", group = "launcher" }),
   awful.key({ modkey }, "x",
     function()
       awful.prompt.run {
         prompt       = "Run Lua code: ",
-        textbox      = awful.screen.focused().mypromptbox.widget,
+        textbox      = awful.screen.focused().promptbox.widget,
         exe_callback = awful.util.eval,
         history_path = awful.util.get_cache_dir() .. "/history_eval"
       }
@@ -463,7 +461,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart applications
 awful.spawn.with_shell("dex --autostart --environment awesome")
-awful.spawn.with_shell("xss-lock --transfer-sleep-lock -- i3lock --nofork")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("picom --config ~/.config/picom/picom.conf")
