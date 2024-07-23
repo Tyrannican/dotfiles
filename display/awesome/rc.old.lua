@@ -44,7 +44,6 @@ local editor_cmd = terminal .. " -e " .. editor
 awful.util.terminal = terminal
 menubar.utils.terminal = terminal
 
--- beautiful.init(os.getenv("HOME") .. "/.config/awesome/powerarrow/theme.lua")
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 awful.layout.layouts = {
@@ -61,6 +60,20 @@ awful.layout.layouts = {
   awful.layout.suit.magnifier,
   awful.layout.suit.floating,
 }
+
+-- Helper functions
+local function client_menu_toggle_fn()
+  local instance = nil
+
+  return function()
+    if instance and instance.wibox.visible then
+      instance:hide()
+      instance = nil
+    else
+      instance = awful.menu.clients({ theme = { width = 250 } })
+    end
+  end
+end
 
 local apps = {
   terminal = terminal,
@@ -157,7 +170,7 @@ awful.screen.connect_for_each_screen(function(s)
     buttons = tasklist_buttons
   }
 
-  s.wibox = awful.wibar({ position = "bottom", screen = s })
+  s.wibox = awful.wibar({ position = "top", screen = s })
 
   s.wibox:setup {
     layout = wibox.layout.align.horizontal,
@@ -443,11 +456,11 @@ client.connect_signal("mouse::enter", function(c)
   c:emit_signal("request::activate", "mouse_enter", { raise = true })
 end)
 
--- client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
--- client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- Autostart applications
--- awful.spawn.with_shell("dex --autostart --environment awesome")
--- awful.spawn.with_shell("nm-applet")
--- awful.spawn.with_shell("nitrogen --restore")
--- awful.spawn.with_shell("picom --config ~/.config/picom/picom.conf")
+awful.spawn.with_shell("dex --autostart --environment awesome")
+awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("picom --config ~/.config/picom/picom.conf")
