@@ -142,4 +142,9 @@ export PATH=$PATH:$HOME/go/bin
 
 # Turso
 export PATH="/home/gak/.turso:$PATH"
+
+# Mise
 eval "$(~/.local/bin/mise activate bash)"
+
+# Intellij (Unix only)
+export PATH="/opt/intellij/bin:$PATH"
