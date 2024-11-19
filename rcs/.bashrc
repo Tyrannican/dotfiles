@@ -136,7 +136,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export GPG_TTY=$(tty)
-export CARGO_TARGET_DIR=/home/gak/cargo-target
+export CARGO_TARGET_DIR=/home/gak/.cargo-target
 
 export PATH=$PATH:$HOME/go/bin
 
