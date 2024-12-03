@@ -127,6 +127,7 @@ fi
 alias python="python3"
 alias pip="pip3"
 alias ls="exa"
+alias cat="bat"
 alias gs="git status"
 alias gco="git checkout"
 alias vim="nvim"
