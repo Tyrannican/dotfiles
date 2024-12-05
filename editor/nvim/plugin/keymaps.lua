@@ -34,3 +34,14 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- Lua bindings
+
+-- Sources the current file
+vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
+
+-- Runs the current line
+vim.keymap.set("n", "<space>x", ":.lua<CR>")
+
+-- Run selected lines
+vim.keymap.set("v", "<space>x", ":lua<CR>")
