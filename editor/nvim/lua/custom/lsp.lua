@@ -72,7 +72,17 @@ local servers = {
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
-  lua_ls = {}
+  lua_ls = {
+    settings = {
+      runtime = {
+        version = 'LuaJIT'
+      },
+      workspace = {
+        checkThirdParty = false,
+        library = vim.api.nvim_get_runtime_file('', true)
+      }
+    }
+  }
 }
 
 -- Setup neovim lua configuration
@@ -86,6 +96,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
+  automatic_installation = true,
   ensure_installed = vim.tbl_keys(servers),
 }
 
