@@ -45,3 +45,6 @@ vim.keymap.set("n", "<space>x", ":.lua<CR>")
 
 -- Run selected lines
 vim.keymap.set("v", "<space>x", ":lua<CR>")
+
+-- Run Plenary Test on Current Lua File
+vim.keymap.set("n", "<leader>t", "<Plug>PlenaryTestFile")
