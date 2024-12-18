@@ -5,6 +5,7 @@ return {
     dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      'saghen/blink.cmp',
       { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
       'folke/neodev.nvim',
     },
