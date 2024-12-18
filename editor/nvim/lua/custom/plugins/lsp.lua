@@ -7,7 +7,15 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'saghen/blink.cmp',
       { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-      'folke/neodev.nvim',
+      {
+        'folke/lazydev.nvim',
+        opts = {
+          ft = "lua",
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          }
+        }
+      }
     },
     config = function()
       require 'custom.lsp'

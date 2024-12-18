@@ -56,26 +56,11 @@ local servers = {
         }
       }
     }
-  },
-  lua_ls = {
-    settings = {
-      runtime = {
-        version = 'LuaJIT'
-      },
-      workspace = {
-        checkThirdParty = false,
-        library = {
-          vim.env.VIMRUNTIME,
-          "${3rd}/luv/library",
-          "${3rd}/busted/library"
-        }
-      }
-    }
   }
 }
 
--- Setup neovim lua configuration
-require('neodev').setup()
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+require('lspconfig').lua_ls.setup { capabilities = capabilities }
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
