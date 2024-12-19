@@ -48,6 +48,7 @@ require('mason-lspconfig').setup()
 
 local servers = {
   gopls = {},
+  lua_ls = {},
   rust_analyzer = {
     settings = {
       ["rust-analyzer"] = {
@@ -59,9 +60,6 @@ local servers = {
   }
 }
 
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-require('lspconfig').lua_ls.setup { capabilities = capabilities }
-
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
@@ -70,6 +68,7 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 mason_lspconfig.setup_handlers {
   function(server_name)
     capabilities = require('blink.cmp').get_lsp_capabilities()
