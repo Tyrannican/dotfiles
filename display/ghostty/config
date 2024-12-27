@@ -1,0 +1,7 @@
+font-size = 14
+font-family = JetBrains Mono
+theme = Snazzy
+working-directory = home
+keybind = shift+right=next_tab
+keybind = shift+left=previous_tab
+keybind = ctrl+t=new_tab
