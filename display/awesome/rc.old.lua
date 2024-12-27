@@ -36,7 +36,7 @@ do
 end
 
 -- Variable definitions
-local terminal = "wezterm"
+local terminal = "ghostty"
 local modkey = "Mod1"
 local editor = os.getenv("EDITOR") or "nano"
 local editor_cmd = terminal .. " -e " .. editor
