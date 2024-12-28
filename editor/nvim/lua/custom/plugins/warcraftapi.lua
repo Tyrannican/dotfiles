@@ -1,8 +1,7 @@
 return {
   {
-    "warcraft-api",
-    name = "warcraft-api",
-    dir = "/home/gak/workspace/neovim-plugins/warcraft-api.nvim",
+    "tyrannican/warcraft-api.nvim",
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('warcraft-api').setup()
     end
