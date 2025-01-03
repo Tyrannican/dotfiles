@@ -149,3 +149,8 @@ eval "$(~/.local/bin/mise activate bash)"
 
 # Intellij (Unix only)
 export PATH="/opt/intellij/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"

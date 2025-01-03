@@ -6,3 +6,4 @@ window-decoration = false
 keybind = shift+right=next_tab
 keybind = shift+left=previous_tab
 keybind = ctrl+t=new_tab
+clipboard-paste-protection = false
