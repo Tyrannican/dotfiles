@@ -127,9 +127,9 @@ fi
 alias python="python3"
 alias pip="pip3"
 alias ls="exa"
-alias cat="bat"
 alias gs="git status"
 alias gco="git checkout"
+alias goops="git commit --amend --no-edit && git push --force-with-lease"
 alias vim="nvim"
 
 export NVM_DIR="$HOME/.nvm"
@@ -139,7 +139,7 @@ export NVM_DIR="$HOME/.nvm"
 export GPG_TTY=$(tty)
 export CARGO_TARGET_DIR=/home/gak/.cargo-target
 
-export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:/usr/local/go/bin
 
 # Turso
 export PATH="/home/gak/.turso:$PATH"
