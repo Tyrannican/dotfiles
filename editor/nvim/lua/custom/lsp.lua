@@ -68,18 +68,18 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    capabilities = require('blink.cmp').get_lsp_capabilities()
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
-}
+-- local capabilities = require('blink.cmp').get_lsp_capabilities()
+-- mason_lspconfig.setup_handlers {
+--   function(server_name)
+--     capabilities = require('blink.cmp').get_lsp_capabilities()
+--     require('lspconfig')[server_name].setup {
+--       capabilities = capabilities,
+--       on_attach = on_attach,
+--       settings = servers[server_name],
+--       filetypes = (servers[server_name] or {}).filetypes,
+--     }
+--   end,
+-- }
 
 -- Ensures Rustfmt is run on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
