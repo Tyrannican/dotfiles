@@ -29,14 +29,6 @@ local on_attach = function(_, bufnr)
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
-  -- Lesser used LSP functionality
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-  nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-  nmap('<leader>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, '[W]orkspace [L]ist Folders')
-
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
@@ -44,10 +36,8 @@ local on_attach = function(_, bufnr)
 end
 
 require('mason').setup()
-require('mason-lspconfig').setup()
 
 local servers = {
-  gopls = {},
   lua_ls = {},
   rust_analyzer = {
     settings = {
@@ -56,7 +46,8 @@ local servers = {
           command = "clippy"
         }
       }
-    }
+    },
+    on_attach = on_attach
   }
 }
 
@@ -66,20 +57,17 @@ local mason_lspconfig = require 'mason-lspconfig'
 mason_lspconfig.setup {
   automatic_installation = true,
   ensure_installed = vim.tbl_keys(servers),
+  automatic_enable = true
 }
 
--- local capabilities = require('blink.cmp').get_lsp_capabilities()
--- mason_lspconfig.setup_handlers {
---   function(server_name)
---     capabilities = require('blink.cmp').get_lsp_capabilities()
---     require('lspconfig')[server_name].setup {
---       capabilities = capabilities,
---       on_attach = on_attach,
---       settings = servers[server_name],
---       filetypes = (servers[server_name] or {}).filetypes,
---     }
---   end,
--- }
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+local server_names = mason_lspconfig.get_installed_servers()
+for _, server_name in ipairs(server_names) do
+  vim.lsp.config(server_name, {
+    capabilities = capabilities,
+    on_attach = on_attach
+  })
+end
 
 -- Ensures Rustfmt is run on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
