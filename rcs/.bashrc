@@ -126,8 +126,9 @@ fi
 
 alias python="python3"
 alias pip="pip3"
-alias ls="exa"
+alias ls="eza"
 alias gs="git status"
+alias gd="git diff"
 alias gco="git checkout"
 alias goops="git commit --amend --no-edit && git push --force-with-lease"
 alias vim="nvim"

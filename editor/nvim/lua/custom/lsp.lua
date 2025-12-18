@@ -39,6 +39,7 @@ require('mason').setup()
 
 local servers = {
   lua_ls = {},
+  gopls = {},
   rust_analyzer = {
     settings = {
       ["rust-analyzer"] = {
