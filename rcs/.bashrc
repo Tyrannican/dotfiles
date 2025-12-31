@@ -141,6 +141,7 @@ export GPG_TTY=$(tty)
 export CARGO_TARGET_DIR=/home/gak/.cargo-target
 
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin
 
 # Turso
 export PATH="/home/gak/.turso:$PATH"
