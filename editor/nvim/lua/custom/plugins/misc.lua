@@ -27,4 +27,13 @@ return {
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+
+  -- Warcraft API
+  {
+    'Tyrannican/warcraft-api.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('warcraft-api').setup()
+    end
+  }
 }

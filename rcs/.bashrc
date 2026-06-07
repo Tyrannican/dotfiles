@@ -138,7 +138,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export GPG_TTY=$(tty)
-export CARGO_TARGET_DIR=/home/gak/.cargo-target
+export CARGO_TARGET_DIR=/home/gak/cargo-target
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
@@ -156,3 +156,15 @@ export PATH="/opt/intellij/bin:$PATH"
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 eval "$(atuin init bash)"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/gak/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
