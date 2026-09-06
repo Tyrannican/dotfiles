@@ -143,6 +143,9 @@ export CARGO_TARGET_DIR=/home/gak/cargo-target
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
 
+# Set the editor
+export EDITOR="/usr/local/bin/nvim"
+
 # Turso
 export PATH="/home/gak/.turso:$PATH"
 
