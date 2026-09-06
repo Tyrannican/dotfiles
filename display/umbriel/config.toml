@@ -299,6 +299,7 @@ follows_mouse = false                           # Focus the pointer target after
 # Overview
 "Mod+O" = { action = "overview-toggle", repeat = false }
 
+"Mod+1" = "workspace-switch:1"
 "Mod+2" = "workspace-switch:CHAT"
 "Mod+3" = "workspace-switch:WEB"
 "Mod+4" = "workspace-switch:WORK"
