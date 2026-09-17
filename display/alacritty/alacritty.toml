@@ -1,19 +1,10 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
-# Colorscheme
-import = ["~/.config/alacritty/themes/base16_default_dark.yaml"]
-
 [window]
-decorations = "none"
-  # Allow terminal applications to change Alacritty's window title.
+decorations = "None"
 dynamic_title = true
 opacity = 1.0
 
 [scrolling]
 history = 10000
-
-  # Scrolling distance multiplier.
-  #multiplier = 3
 
 # Font configuration
 [font]
@@ -21,4 +12,16 @@ normal = { family = "JetBrains Mono", style = "Regular" }
 bold = { family = "JetBrains Mono", style = "Bold" }
 italic = { family = "JetBrains Mono", style = "Italic" }
 bold_italic = { family = "JetBrains Mono", style = "Bold Italic" }
-size = 16.0
+size = 13.0
+
+[cursor]
+style = "Block"
+
+[general]
+import = ["~/.config/alacritty/themes/carbonfox.toml"]
+working_directory = "/home/gak"
+
+[keyboard]
+bindings = [
+    { key = "T", mods = "Control", action = "CreateNewWindow" }
+]

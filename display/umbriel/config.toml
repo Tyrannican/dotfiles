@@ -278,7 +278,7 @@ follows_mouse = false                           # Focus the pointer target after
 [keybinds]
 
 # Applications and session
-"Mod+Return" = "spawn:ghostty"
+"Mod+Return" = "spawn:alacritty"
 "Mod+D" = "spawn:noctalia msg panel-toggle launcher"
 "Mod+Q" = "window-close"
 
