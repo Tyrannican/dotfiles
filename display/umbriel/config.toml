@@ -402,7 +402,7 @@ follows_mouse = false                           # Focus the pointer target after
 [layout]
 mode = "scrolling"                              # scrolling, dwindle, or master
 gap = 8                                         # Logical pixels between tiles, 0-500
-width_presets = [0.333, 0.5, 0.667]             # Width and height cycling fractions
+extent_presets = [0.333, 0.5, 0.667]             # Width and height cycling fractions
 
 [layout.struts]
 # Signed logical pixels reserved after panel exclusive zones. Negative values
@@ -414,7 +414,7 @@ bottom = 0
 
 [layout.scrolling]
 # direction = "horizontal"                      # horizontal or vertical strip axis
-default_width_fraction = 1.0                    # Initial width for new columns, 0.1-1.0
+default_extent_fraction = 1.0                    # Initial width for new columns, 0.1-1.0
 center_underfull_strip = true                   # Center a strip narrower than the viewport
 center_focused = "never"                        # Always center the focused column
 # expand_single_column = true                     # Let a lone column fill the viewport
@@ -443,13 +443,13 @@ blur_optimized = false
 [[window_rule]]
 match.app_id = "^dev.noctalia.Noctalia$"
 default_floating = true
-default_size = [1020, 900]
+default_floating_size = { width = 0.5, height = 0.6 }
 
 # Noctalia share picker
 [[window_rule]]
 match.app_id = "^dev.noctalia.UmbrielSharePicker$"
 default_floating = true
-default_size = [800, 600]
+default_floating_size = { width = 0.5, height = 0.6 }
 
 # Browsers expose no semantic PiP role or global position control.
 [[window_rule]]
